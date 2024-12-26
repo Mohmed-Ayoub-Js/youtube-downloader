@@ -4,15 +4,23 @@ import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
 
+// For getting the directory name in ES modules
+import { fileURLToPath } from 'url';
+
 const app = express();
 const port = 3000;
+
+// This will resolve __dirname functionality in ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const sanitizeFileName = (filename: string) => {
     return filename.replace(/[\/\\?%*:|"<>]/g, '').replace(/\s+/g, '_');
 };
 
 app.get('/', (req, res) => {
-    res.send('Hello, world!');
+    const indexPath = path.join(__dirname, 'ui' , 'index.html');
+    res.sendFile(indexPath);
 });
 
 app.get("/download", async (req: Request, res: Response): Promise<void> => {
@@ -79,5 +87,5 @@ app.get("/download", async (req: Request, res: Response): Promise<void> => {
 });
 
 app.listen(port, () => {
-    console.log(chalk.cyan(`Server running at http://localhost:${port}`));
+    console.log(chalk.cyan(`Server running at http://localhost:${port} - FREE YOUTUBE DOWNLODER V2.0.0`));
 });

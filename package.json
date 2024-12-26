@@ -1,6 +1,6 @@
 {
-  "name": "youtube-downloader",
-  "version": "1.0.0",
+  "name": "minecraftmods",
+  "version": "2.0.0",
   "description": "",
   "type": "module",
   "main": "./dist/index.js",
