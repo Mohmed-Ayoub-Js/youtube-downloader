@@ -4,13 +4,11 @@ import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
 
-// For getting the directory name in ES modules
 import { fileURLToPath } from 'url';
 
 const app = express();
 const port = 3000;
 
-// This will resolve __dirname functionality in ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
